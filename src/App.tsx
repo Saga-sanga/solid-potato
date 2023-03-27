@@ -29,7 +29,7 @@ function Bookshelf(props: BookshelfProps) {
         <h1 class="text-3xl font-semibold mb-4">{props.name}'s Bookshelf</h1>
         <BookList books={books()}/>
       </div>
-      <div class="border-t p-4">
+      <div class="flex flex-col gap-2 border-t p-4">
         <Show
           when={showForm()}
           fallback={<button class="btn btn-primary" onClick={toggleForm}>Add a book</button>}
@@ -45,7 +45,7 @@ function Bookshelf(props: BookshelfProps) {
 function App() {
   return (
     <div data-theme="fantasy" class="grid place-content-center min-h-screen">
-      <Bookshelf name='Solid'/>
+      <Bookshelf name='Reckson'/>
     </div>
   );
 };

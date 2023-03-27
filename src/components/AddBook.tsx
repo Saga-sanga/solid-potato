@@ -34,21 +34,24 @@ export function AddBook(props: AddBookProps) {
           Search
         </button>
       </form>
-      <Show when={!data.loading} fallback={<progress class="progress w-56"></progress>}>
+      <Show when={!data.loading} fallback={<progress class="progress w-56 my-2 self-center"></progress>}>
           <ul class="list-disc ml-4 my-2">
             <For each={data()}>
               {(book) => (
-                <li>
-                  {book.title} by {book.author}{" "}
-                  <button
-                    aria-label={`Add ${book.title} by ${book.author} to the bookshelf`}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      props.setBooks((books) => [...books, book])
-                    }}
-                  >
-                    Add
-                  </button>
+                <li class="mb-1">
+                  <span class="flex justify-between">
+                    {book.title} by {book.author}{" "}
+                    <button
+                      class="btn btn-secondary min-h-min h-8"
+                      aria-label={`Add ${book.title} by ${book.author} to the bookshelf`}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        props.setBooks((books) => [...books, book])
+                      }}
+                    >
+                      Add
+                    </button>
+                  </span>
                 </li>
               )}
             </For>
